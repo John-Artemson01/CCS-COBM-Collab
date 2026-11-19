@@ -1,4 +1,4 @@
-// This will look for the "id" in the 
+// This will look for the "id" in the link then kukuha ng information sa details/destinations.js sa matching id
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const placeId = params.get("id");
