@@ -18,11 +18,24 @@
 .suggest button{width:100%;text-align:left;background:none;border:0;padding:10px 12px;border-radius:10px;font:inherit;cursor:pointer}
 .suggest button:hover,.suggest button:focus-visible{background:var(--mint)}
 .map-scroll{max-width:1180px;margin:0 auto;overflow-x:auto;border-radius:18px;border:1px solid var(--line)}
-.map{position:relative;min-width:940px;aspect-ratio:16/9;background:#eef0ec url("../assets/images/map/map-bg.jpg") center/cover}
-.pin{position:absolute;transform:translate(-50%,-50%);background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;width:130px;font:700 12px var(--sans);color:#1f2a25}
-.pin img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:4px solid var(--ring);background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.25);transition:transform .15s}
-.pin:hover img,.pin[aria-pressed="true"] img{transform:scale(1.12);border-color:var(--forest)}
-.pin span{background:rgba(255,255,255,.85);border-radius:6px;padding:1px 6px;text-align:center;line-height:1.25}
+.map{position:relative;isolation:isolate;min-width:940px;aspect-ratio:16/9;background:#eef0ec url("../assets/images/map/map-bg.jpg") center/cover}
+.map::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:0}
+.map.has-selection::before{opacity:1}
+.pin{position:absolute;transform:translate(-50%,-100%);width:130px;height:56px;background:none;border:0;padding:0;cursor:pointer;color:#fff;font:700 14px var(--sans);z-index:1;transition:opacity .2s ease}
+.pin-graphic{position:absolute;left:50%;bottom:-8px;width:58px;height:58px;transform:translateX(-50%);z-index:1}
+.pin-content{position:absolute;inset:0;transform-origin:50% 86%;transition:transform .18s ease}
+.pin-photo,.pin-shape{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.pin-photo{inset:auto;left:50%;top:39.1%;width:50%;height:50%;transform:translate(-50%,-50%);border-radius:50%;object-fit:cover;object-position:center;visibility:hidden;z-index:2}
+.pin-shape{z-index:1;transition:filter .18s ease}
+.pin[aria-pressed="true"]{z-index:3}
+.pin:hover .pin-content,.pin:focus-visible .pin-content{transform:scale(1.18)}
+.pin[aria-pressed="true"] .pin-content{transform:scale(4)}
+.pin:hover .pin-shape,.pin:focus-visible .pin-shape,.pin[aria-pressed="true"] .pin-shape{filter:brightness(1.8)}
+.pin[aria-pressed="true"] .pin-photo{visibility:visible}
+.map.has-selection .pin:not([aria-pressed="true"]){opacity:.28}
+.pin-name{position:absolute;top:50%;left:calc(50% + 20px);transform:translateY(-50%);transform-origin:left center;transition:transform .18s ease;width:max-content;max-width:var(--pin-label-width,140px);background:rgba(255,255,255,.9);border-radius:6px;padding:1px 6px;text-align:left;line-height:1.25;color:#1f2a25;font-size:12px}
+.pin[data-id="padre-pio-mountain"] .pin-name{top:calc(50% + 4px)}
+.pin[aria-pressed="true"] .pin-name{left:calc(50% + 64px);max-width:var(--pin-selected-label-width,140px);transform:translateY(-50%) scale(1.30)}
 .pin.dim{opacity:.25}
 .pin.hidden{display:none}
 .place-panel{max-width:1180px;margin:14px auto 0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
