@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Removed for now, wala pang styling-->
+  <link rel="stylesheet" href="css/details.css">
+  <title>Destination – SJDM Tourist Navigator</title>
+  <head>*TEMPORARY* WILL BE REDESIGNED</head>
+</head>
+<body>
+  <main id="content">
+    <div class="details-banner">
+      <img class="banner-bg" id="place-img" src="" alt="">
+      <div class="banner-overlay">
+        <a class="banner-back" href="map.html">← SJDM TOURIST NAVIGATOR</a>
+      </div>
+    </div>
+
+
+    <!-- This holds the destination name, type ng place, address, and the status badge (confirmed or not) -->
+    <div class="wrap sheet-container">
+      <article class="details-sheet">
+        <header class="sheet-header">
+          <div class="sheet-title-group">
+            <h1 id="place-name"></h1>
+            <p class="place-type" id="place-type"></p>
+            <p class="place-address" id="place-address"></p>
+            <p class="notice-badge" id="place-notice" hidden>Not confirmed, check before visiting</p>
+          </div>
+          <div class="sheet-actions">
+            <a class="btn btn-solid" id="place-maps" href="#" target="_blank" rel="noopener">Directions</a>
+          </div>
+        </header>
+        <!-- This will be shown if walang information yung place -->
+        <div class="coming-soon-box" id="coming-soon-box" hidden>
+          <p>Full details for this place are coming soon.</p>
+        </div>
+        
+        <!--  Info cards. Slide columns yung container ng 3 cards, (slide-card card-{name of information}) yung class ng individual cards-->
+        <!-- First card, holds the directions -->
+        <div class="slide-columns" id="slide-columns">
+          <section class="slide-card card-routes">
+            <h2>HOW TO GO FROM TUNGKO</h2>
+            <div id="routes-container"></div>
+          </section>
+        <!-- Second card, holds the nearby cafe -->
+          <section class="slide-card card-cafes">
+            <h2>NEARBY CAFÉ / F&amp;B</h2>
+            <div id="cafes-container"></div>
+          </section>
+        <!-- Third, holds the tips for the tourists -->
+          <section class="slide-card card-tips">
+            <h2>TOURIST TIPS / INFO:</h2>
+            <div id="tips-container"></div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <strong>SJDM Tourist Navigator</strong>
+        <p>Student tourism project · Information may change.</p>
+        <p>Verify fees, opening hours, routes, and availability before travel.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="map.html">Explore</a>
+        <a href="index.html#tips">Travel Tips</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="data/destinations.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/details.js"></script>
+</body>
+</html>
