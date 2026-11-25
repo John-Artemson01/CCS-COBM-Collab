@@ -246,7 +246,7 @@ const DESTINATIONS = [
       ]
     },
     "verified": true,
-    "comingSoon": true
+    "comingSoon": false
   },
   {
     "id": "burong-falls",
@@ -493,6 +493,6 @@ const DESTINATIONS = [
       ]
     },
     "verified": true,
-    "comingSoon": true
+    "comingSoon": false
   }
 ];

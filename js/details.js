@@ -306,7 +306,9 @@ function renderHero(place) {
   tagElement.textContent = primaryTag;
   tagElement.hidden = !primaryTag;
 
-  directionsLink.href = mapsUrl(place);
+ directionsLink.href = mapsUrl(place);
+  directionsLink.target = "_blank";
+  directionsLink.rel = "noopener";
 
   setupHeroPhotoTrigger(place);
 }
