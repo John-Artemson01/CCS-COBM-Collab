@@ -114,8 +114,8 @@
       '<div class="place-card"><img src="' + p.image + '" alt="' + esc(p.name) + '">' +
       "<div><p class=\"hint\">" + esc(p.type) + "</p><h2>" + esc(p.name) + "</h2><p>📍 " + esc(p.address) + "</p></div></div>" +
       '<div class="actions">' +
-      '<a class="btn btn-solid" href="' + detailsUrl(p) + '">View Full Details <span class="btn-external" aria-hidden="true">⇗</span></a>' +
-      '<a class="btn btn-outline" target="_blank" rel="noopener" href="' + mapsUrl(p) + '">🧭 Directions <span class="btn-external" aria-hidden="true">⇗</span></a>' +
+      '<a class="btn btn-solid" href="' + detailsUrl(p) + '">View Full Details <span class="btn-external" aria-hidden="true">↗</span></a>' +
+      '<a class="btn btn-outline" target="_blank" rel="noopener" href="' + mapsUrl(p) + '">🧭 Directions <span class="btn-external" aria-hidden="true">↗</span></a>' +
       '<button class="btn btn-outline" type="button" id="back">← Back to Map</button></div>';
     pinEls[id].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }
